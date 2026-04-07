@@ -137,3 +137,4 @@ C:\Users\Aniket\source\repos\HealthcareApp\HealthcareApp\bin\Debug\net8.0\runtim
 C:\Users\Aniket\source\repos\HealthcareApp\HealthcareApp\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\Aniket\source\repos\HealthcareApp\HealthcareApp\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 C:\Users\Aniket\source\repos\HealthcareApp\HealthcareApp\obj\Debug\net8.0\Healthca.42D9BF33.Up2Date
+C:\Users\Aniket\source\repos\HealthcareApp\HealthcareApp\obj\Debug\net8.0\HealthcareApp.sourcelink.json

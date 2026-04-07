@@ -4,33 +4,57 @@
     ViewData["Title"] = "Login";
 }
 
-<h2>Login</h2>
 
-<form asp-action="Login" method="post" class="needs-validation" novalidate>
-    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+</head>
+<body>
+    <div class="animated-bg">Helath Care</div>
 
-    <div class="mb-3">
-        <label asp-for="Username" class="form-label"></label>
-        <input asp-for="Username" class="form-control" />
-        <span asp-validation-for="Username" class="text-danger"></span>
+    <div class="login-container">
+
+        <!-- Left Section -->
+        <div class="left-section">
+            <h1 class="titleAll" style="font-size: 36px;"></h1>
+           
+            <p class="signin-label">Sign In</p>
+
+            <form method="post">
+                @if (ViewBag.Error != null)
+                {
+                    <p class="error-msg">@ViewBag.Error</p>
+                }
+
+                @Html.ValidationSummary(false, "", new { @class = "error-msg" })
+
+                <label>Username</label>
+                <input type="text" name="Username" placeholder="Enter your username" required>
+
+                <label>Password</label>
+                <input type="password" name="Password" placeholder="Enter your password" required>
+
+                <button type="submit" class="btn-login">SIGN IN</button>
+                <a href="/ForgetPassword/Index" class="forgot">Forgot password?</a>
+            </form>
+        </div>
+
+        <!-- Divider -->
+        <div class="divider"></div>
+
+        <!-- Right Section -->
+        <div class="right-section">
+            <h3>Don't have an account?<br>No problem, create one now</h3>
+            <a href="/CreateAccount/Index" class="btn-create">CREATE ACCOUNT</a>
+        </div>
+
     </div>
+   
 
-    <div class="mb-3">
-        <label asp-for="Password" class="form-label"></label>
-        <input asp-for="Password" class="form-control" />
-        <span asp-validation-for="Password" class="text-danger"></span>
-    </div>
+</body>
+</html>
 
-    <div class="form-check mb-3">
-        <input asp-for="RememberMe" class="form-check-input" />
-        <label asp-for="RememberMe" class="form-check-label"></label>
-    </div>
-
-    <input type="hidden" asp-for="ReturnUrl" />
-
-    <button type="submit" class="btn btn-primary">Login</button>
-</form>
-
-@section Scripts {
-    <partial name="_ValidationScriptsPartial" />
-}
+<link rel="stylesheet" href="~/css/site.css" />
