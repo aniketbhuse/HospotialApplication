@@ -27,7 +27,18 @@
                         </li>
                     </ul>
                     <div class="d-flex">
-                        <a class="btn btn-outline-primary" asp-area="" asp-controller="Account" asp-action="Login">Login</a>
+                        @if (Context.Session.GetString("UserEmail") != null)
+                        {
+                            <span>Welcome, @Context.Session.GetString("UserName")</span>
+
+                            <a asp-controller="Account" asp-action="Logout" class="btn btn-danger"> Logout
+ </a>
+                        }
+                        else
+                        {
+                            <a class="btn btn-outline-primary" asp-area="" asp-controller="Account" asp-action="Login">Login</a>
+                        }
+                        
                     </div>
                 </div>
             </div>

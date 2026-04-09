@@ -1,0 +1,52 @@
+﻿@model HealthcareApp.Models.User
+@model HealthcareApp.Models.User
+@{
+    ViewData["Title"] = "Create Account";
+}
+
+<h2>Create Account</h2>
+
+<form asp-action="Index" method="post">
+    @Html.AntiForgeryToken()
+
+    <div>
+        <label asp-for="FullName"></label>
+        <input asp-for="FullName" />
+        @Html.ValidationMessageFor(m => m.FullName)
+    </div>
+
+    <div>
+        <label asp-for="Email"></label>
+        <input asp-for="Email" />
+        @Html.ValidationMessageFor(m => m.Email)
+    </div>
+
+    <div>
+        <label asp-for="Password"></label>
+        <input asp-for="Password" type="password" />
+        @Html.ValidationMessageFor(m => m.Password)
+    </div>
+
+    <div>
+        <label asp-for="RoleId"></label>
+        <input asp-for="RoleId" type="number" />
+        @Html.ValidationMessageFor(m => m.RoleId)
+    </div>
+
+    <div>
+        <label asp-for="UpdatedDate"></label>
+        <input asp-for="UpdatedDate" type="datetime-local" />
+        @Html.ValidationMessageFor(m => m.UpdatedDate)
+    </div>
+
+    <div>
+        <label asp-for="CreatedDate"></label>
+        <input asp-for="CreatedDate" type="datetime-local" />
+        @Html.ValidationMessageFor(m => m.CreatedDate)
+    </div>
+
+    <div>
+        <button type="submit">Create</button>
+        <a asp-controller="Account" asp-action="Login">Back to Login</a>
+    </div>
+</form>

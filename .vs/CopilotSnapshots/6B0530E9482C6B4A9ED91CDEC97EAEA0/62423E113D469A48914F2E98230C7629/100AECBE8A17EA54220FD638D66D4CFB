@@ -1,0 +1,41 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using HealthcareApp.Models;
+using System;
+using HealthcareApp.Data;
+
+namespace HealthcareApp.Controllers
+{
+    
+    public class CreateAccountController : Controller
+    {
+        private readonly ApplicationDbContext _context;
+
+        public CreateAccountController(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+
+        [HttpGet]
+        public IActionResult Index()
+        {
+            // Prefill CreatedDate so the form shows a reasonable default
+            var model = new User { CreatedDate = DateTime.UtcNow };
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Index(User model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+            
+            _context.Users.Add(model);
+            _context.SaveChanges();
+            return RedirectToAction("Login", "Account");
+        }
+
+    }
+}

@@ -1,0 +1,28 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using HealthcareApp.Models;
+
+namespace HealthcareApp.Controllers
+{
+    public class CreateAccountController : Controller
+    {
+        [HttpGet]
+        public IActionResult Index()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Index(User model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            // TODO: Persist the user (hash password, save to DB) before using in production.
+
+            return RedirectToAction("Login", "Account");
+        }
+    }
+}

@@ -833,3 +833,212 @@ body {
             background: #007bff;
             color: white;
         }
+
+
+        /* Create Account page */
+
+/* Full page layout */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.page-container {
+    display: flex;
+    height: 100vh;
+}
+
+/* Left side */
+.left-panel {
+    flex: 1;
+    background: linear-gradient(to right, #4facfe, #00f2fe);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 50px;
+}
+
+    .left-panel h1 {
+        font-size: 40px;
+        margin-bottom: 10px;
+    }
+
+    .left-panel p {
+        font-size: 18px;
+    }
+
+/* Right side */
+.right-panel {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end; /* pushes form to right */
+    align-items: center;
+    background-color: #f5f7fa;
+    padding-right: 80px;
+}
+
+/* Form box */
+.form-box {
+    width: 350px;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+    .form-box h2 {
+        margin-bottom: 20px;
+    }
+
+/* Form fields */
+.form-group {
+    margin-bottom: 15px;
+}
+
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+
+.form-control {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Buttons */
+.form-actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-submit {
+    background-color: #4facfe;
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+    .btn-submit:hover {
+        background-color: #3a8dde;
+    }
+
+.btn-link {
+    text-decoration: none;
+    color: #4facfe;
+}
+
+
+/* Reset */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Layout */
+.page-container {
+    display: flex;
+    height: 100vh;
+}
+
+/* Left Panel */
+.left-panel {
+    flex: 1;
+    background: linear-gradient(to right, #4facfe, #00f2fe);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 50px;
+}
+
+/* Right Panel */
+.right-panel {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: #f5f7fa;
+    padding-right: 80px;
+}
+
+/* Form Box */
+.form-box {
+    width: 350px;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+    /* Form Title */
+    .form-box h2 {
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+/* Form Group */
+.form-group {
+    margin-bottom: 15px;
+}
+
+    /* ? FIXED LABEL STYLE */
+    .form-group label {
+        display: block;
+        margin-bottom: 6px;
+        font-weight: 600;
+        color: #222; /* important: dark color so it's visible */
+        font-size: 14px;
+    }
+
+/* Input Fields */
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #333;
+    background-color: #fff;
+}
+
+    /* Focus effect */
+    .form-control:focus {
+        border-color: #4facfe;
+        outline: none;
+        box-shadow: 0 0 5px rgba(79, 172, 254, 0.5);
+    }
+
+/* Buttons */
+.form-actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-submit {
+    background-color: #4facfe;
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+    .btn-submit:hover {
+        background-color: #3a8dde;
+    }
+
+.btn-link {
+    text-decoration: none;
+    color: #4facfe;
+    font-size: 14px;
+}

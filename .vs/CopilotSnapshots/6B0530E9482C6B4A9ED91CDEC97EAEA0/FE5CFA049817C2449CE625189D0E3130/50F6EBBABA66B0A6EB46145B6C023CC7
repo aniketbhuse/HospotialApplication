@@ -1,0 +1,60 @@
+﻿@model HealthcareApp.Models.LoginViewModel
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+</head>
+<body>
+    <div class="animated-bg">Helath Care</div>
+
+    <div class="login-container">
+
+        <!-- Left Section -->
+        <div class="left-section">
+            <h1 class="titleAll" style="font-size: 36px;"></h1>
+           
+            <p class="signin-label">Sign In</p>
+
+            <form method="post">
+                @if (ViewBag.Error != null)
+                {
+                    <p class="error-msg">@ViewBag.Error</p>
+                }
+
+                @Html.ValidationSummary(false, "", new { @class = "error-msg" })
+
+                <label>Username</label>
+                <input type="text" name="Username" placeholder="Enter your username" required>
+
+                <label>Password</label>
+                <input type="password" name="Password" placeholder="Enter your password" required>
+
+                <button type="submit" class="btn-login">SIGN IN</button>
+                <a href="/ForgetPassword/Index" class="forgot">Forgot password?</a>
+            </form>
+        </div>
+
+        <!-- Divider -->
+        <div class="divider"></div>
+
+        <!-- Right Section -->
+        <div class="right-section">
+            <h3>Don't have an account?<br>No problem, create one now</h3>
+            <a href="/CreateAccount/Index" class="btn-create">CREATE ACCOUNT</a>
+        </div>
+
+    </div>
+   
+
+</body>
+</html>
+
+<link rel="stylesheet" href="~/css/site.css" />

@@ -1,0 +1,47 @@
+﻿@model HealthcareApp.Models.User
+@{
+    Layout = null; // keep same behavior as Login (no navbar)
+    ViewData["Title"] = "Create Account";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Account</title>
+</head>
+<body>
+    <div class="create-container">
+        <h2>Create Account</h2>
+
+        <form asp-action="Create" method="post">
+            @Html.AntiForgeryToken()
+
+            <div>
+                <label>Full name</label>
+                <input asp-for="FullName" />
+                @Html.ValidationMessageFor(m => m.FullName)
+            </div>
+
+            <div>
+                <label>Email</label>
+                <input asp-for="Email" />
+                @Html.ValidationMessageFor(m => m.Email)
+            </div>
+
+            <div>
+                <label>Password</label>
+                <input asp-for="Password" type="password" />
+                @Html.ValidationMessageFor(m => m.Password)
+            </div>
+
+            <div>
+                <button type="submit">Create</button>
+                <a href='@Url.Action("Login", "Account")'>Back to Login</a>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>

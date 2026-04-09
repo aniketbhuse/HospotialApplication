@@ -1,0 +1,49 @@
+@model HealthcareApp.Models.User
+@{
+    ViewData["Title"] = "Create Account";
+}
+
+
+
+<link rel="stylesheet" href="~/css/create-account.css" />
+
+<div class="page-container">
+
+    <!-- Left side -->
+    <div class="left-panel">
+        <h1>Welcome</h1>
+        <p>Create your healthcare account to get started.</p>
+    </div>
+
+    <!-- Right side -->
+    <div class="right-panel">
+        <div class="form-box">
+            <h2>Create Account</h2>
+
+            <form asp-action="Index" method="post">
+                @Html.AntiForgeryToken()
+
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input asp-for="FullName" class="form-control" />
+                </div>
+
+                <div class="form-group">
+                    <label>Email</label>
+                    <input asp-for="Email" class="form-control" />
+                </div>
+
+                <div class="form-group">
+                    <label>Password</label>
+                    <input asp-for="Password" type="password" class="form-control" />
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn-submit">Create</button>
+                    <a asp-controller="Account" asp-action="Login" class="btn-link">Back to Login</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>

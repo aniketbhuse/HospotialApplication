@@ -1,10 +1,20 @@
 using Microsoft.AspNetCore.Mvc;
 using HealthcareApp.Models;
+using HealthcareApp.Data;
 
 namespace HealthcareApp.Controllers
 {
     public class AccountController : Controller
     {
+        private readonly ILogger<AccountController> _logger;
+        private readonly ApplicationDbContext _context;
+
+        public AccountController(ILogger<AccountController> logger, ApplicationDbContext context)
+        {
+            _logger = logger;
+            _context = context;
+        }
+
         [HttpGet]
         public IActionResult Login(string returnUrl = null)
         {
@@ -16,20 +26,41 @@ namespace HealthcareApp.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Login(LoginViewModel model)
         {
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
+                return RedirectToAction("Index", "Home");
+            }
+
+            var user = _context.Users.FirstOrDefault(u => u.Email == model.Username && u.Password == model.Password);
+
+            if (user == null)
+            {
+                ModelState.AddModelError("", "Invalid username or password");
                 return View(model);
             }
 
-            // NOTE: This example does not implement authentication.
-            // Replace with real credential validation and sign-in logic.
+            
+                HttpContext.Session.SetString("UserEmail", user.Email);
+                HttpContext.Session.SetString("UserName", user.FullName);
 
-            if (!string.IsNullOrEmpty(model.ReturnUrl) && Url.IsLocalUrl(model.ReturnUrl))
+                return RedirectToAction("Index", "Dashboard");
+            
+        }
+
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Clear(); // removes session
+            return RedirectToAction("Login");
+        }
+
+        public IActionResult Index()
+        {
+            if (HttpContext.Session.GetString("UserEmail") == null)
             {
-                return Redirect(model.ReturnUrl);
+                return RedirectToAction("Login", "Account");
             }
 
-            return RedirectToAction("Index", "Home");
+            return View();
         }
     }
 }
