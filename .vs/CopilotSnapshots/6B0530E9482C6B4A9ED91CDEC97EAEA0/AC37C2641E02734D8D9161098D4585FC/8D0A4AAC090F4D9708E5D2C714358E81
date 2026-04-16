@@ -1,0 +1,67 @@
+﻿@model HealthcareApp.Models.User
+@model HealthcareApp.Models.User
+@{
+    ViewData["Title"] = "Create Account";
+}
+
+<link rel="stylesheet" href="~/css/create-account.css" />
+
+<div class="page-container">
+
+    <!-- Left side -->
+    <div class="left-panel">
+        <h1>Welcome</h1>
+        <p>Create your healthcare account to get started.</p>
+    </div>
+
+    <!-- Right side -->
+    <div class="right-panel">
+        <div class="form-box">
+            <h2>Create Account</h2>
+
+            <form asp-action="Index" method="post">
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                <div class="mb-3">
+                    <label asp-for="FullName" class="form-label"></label>
+                    <input asp-for="FullName" class="form-control" />
+                    @Html.ValidationMessageFor(m => m.FullName, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Email" class="form-label"></label>
+                    <input asp-for="Email" class="form-control" />
+                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Password" class="form-label"></label>
+                    <input asp-for="Password" type="password" class="form-control" />
+                    @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="RoleId" class="form-label"></label>
+                    <input asp-for="RoleId" class="form-control" />
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="UpdatedDate" class="form-label"></label>
+                    <input asp-for="UpdatedDate" class="form-control" type="datetime-local" />
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="CreatedDate" class="form-label"></label>
+                    <input asp-for="CreatedDate" class="form-control" type="datetime-local" />
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Create</button>
+                    <a asp-controller="Account" asp-action="Login" class="btn btn-link">Back to Login</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>

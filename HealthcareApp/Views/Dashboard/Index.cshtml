@@ -1,7 +1,216 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
-<h2>Welcome to Dashboard 🎉</h2>
-<p>You are successfully logged in.</p>
+﻿@model HealthcareApp.Models.PatientProfileViewModel
+@using HealthcareApp.Models.Enums
+
+<div class="dashboard-container" style="margin-top: -50px;">
+
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <script>
+            alert("@TempData["SuccessMessage"]");
+        </script>
+    }
+
+    <!-- Patient Card -->
+    <div class="patient-card">
+        <div class="card-left">
+            <h3 class="patient-name">@Model.FullName</h3>
+            <p class="patient-email">@Model.Email</p>
+        </div>
+
+        <div class="card-right">
+            <a href="#" class="btn-nav" onclick="showSection('appointment')">Appointments</a>
+            <a href="#" class="btn-nav" onclick="showSection('doctors')">Doctors</a>
+            <a href="#" class="btn-nav" onclick="showSection('records')">Records</a>
+        </div>
+    </div>
+
+    <!-- Appointment Section -->
+    <div id="appointment" class="dynamic-section">
+
+        <button class="action-btn" onclick="showAppointmentView('new')">New Appointment</button>
+        <button class="action-btn" onclick="showAppointmentView('view')">View Appointments</button>
+
+        <div id="newAppointmentForm" class="appointment-sub-section" style="display:none;">
+            <form method="post" action="/Dashboard/BookAppointment">
+
+                <div class="form-grid">
+
+                    <!-- LEFT COLUMN -->
+                    <div class="form-column">
+
+                        <div class="form-group">
+                            <label>Select Doctor</label>
+                            <select name="DoctorId" required>
+                                @foreach (var doctor in Model.Doctors)
+                                {
+                                    <option value="@doctor.DoctorId">
+                                        @doctor.FullName (@doctor.Specialization)
+                                    </option>
+                                }
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Appointment Date</label>
+                            <input type="date" name="AppointmentDate" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label>Time</label>
+                            <input type="time" name="Time" required />
+                        </div>
+
+                        <div class="form-group" style="width: 204%;">
+                            <label>Description</label>
+                            <textarea name="Description"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- RIGHT COLUMN -->
+                    <div class="form-column">
+
+                        <div class="form-group">
+                            <label>Gender</label>
+                            <select name="Gender" required>
+                                <option value="">Select</option>
+                                <option>Male</option>
+                                <option>Female</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Contact</label>
+                            <input type="text" name="Contact" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label>Age</label>
+                            <input type="number" name="Age" required />
+                        </div>
+
+                    </div>
+                </div>
+
+                <button type="submit" class="action-btn">Book Appointment</button>
+
+            </form>
+        </div>
+
+        <!-- View Appointments -->
+        <div id="viewAppointments" class="appointment-sub-section" style="display:none;">
+
+            @if (Model.Appointments != null && Model.Appointments.Any())
+            {
+                <div class="appointment-grid">
+
+                    @foreach (var appt in Model.Appointments)
+                    {
+                        <div class="appointment-card" id="card-@appt.AppointmentId">
+
+                            <!-- Icons -->
+                            <div class="card-icons">
+                                <span class="icon edit" onclick="openEditModal(@appt.AppointmentId)">✏️</span>
+                                <span class="icon delete" onclick="deleteCard(@appt.AppointmentId)">🗑️</span>
+                            </div>
+
+                            <h4>@appt.PatientName</h4>
+                            <p><strong>Age:</strong> @appt.Age</p>
+                            <p><strong>Gender:</strong> @appt.Gender</p>
+                            <p><strong>Contact:</strong> @appt.Contact</p>
+                            <p><strong>Description:</strong> @appt.Description</p>
+
+                            <hr />
+
+                            <p><strong>Doctor:</strong> @appt.DoctorName</p>
+                            <p><strong>Date:</strong> @appt.AppointmentDate.ToShortDateString()</p>
+                            <p><strong>Time:</strong> @appt.Time</p>
+                            <p><strong>Status:</strong> @((AppointmentStatus)appt.Status)</p>
+
+                            <div class="hover-line"></div>
+                        </div>
+                    }
+
+                </div>
+            }
+        </div>
+
+        <div id="editModal" class="modal">
+            <div class="modal-content">
+                <h3>Edit Appointment</h3>
+
+                <input type="hidden" id="editId" />
+
+                <input type="text" id="editName" placeholder="Patient Name" />
+                <input type="number" id="editAge" placeholder="Age" />
+                <input type="text" id="editContact" placeholder="Contact" />
+                <textarea id="editDescription" placeholder="Description"></textarea>
+
+                <button onclick="saveEdit()">Save</button>
+                <button onclick="closeModal()">Cancel</button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Doctors Section -->
+    <div id="doctors" class="dynamic-section">
+
+        @if (Model.Doctors != null && Model.Doctors.Any())
+        {
+            foreach (var doctor in Model.Doctors)
+            {
+                <div class="doctor-card">
+                    <div class="doctor-left">
+                        <h4>@doctor.FullName</h4>
+                        <p>@doctor.Specialization</p>
+                        <p>
+                            @doctor.AvailableFrom.ToString(@"hh\:mm") -
+                            @doctor.AvailableTo.ToString(@"hh\:mm")
+                        </p>
+                    </div>
+
+                    <div class="doctor-right">
+                        <a href="/Appointment/Book?doctorId=@doctor.DoctorId" class="btn-book">
+                            Book Appointment
+                        </a>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <p>No doctors available.</p>
+        }
+
+    </div>
+
+    <!-- Records Section -->
+    <div id="records" class="dynamic-section">
+        <button class="action-btn">Upload Record</button>
+        <button class="action-btn">View Records</button>
+    </div>
+
+</div>
+
+<!-- Scripts -->
+<script src="~/js/site.js"></script>
+
+<script>
+    function showAppointmentView(type) {
+        const newForm = document.getElementById("newAppointmentForm");
+        const viewSection = document.getElementById("viewAppointments");
+
+        newForm.style.display = "none";
+        viewSection.style.display = "none";
+
+        if (type === "new") {
+            newForm.style.display = "block";
+        } else if (type === "view") {
+            viewSection.style.display = "block";
+        }
+    }
+</script>
+
+
+<script src="~/js/site.js"></script>

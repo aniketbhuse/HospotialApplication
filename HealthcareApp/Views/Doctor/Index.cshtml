@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Doctor Dashboard";
+}
+
+<div class="container mt-4">
+    <h2>Doctor Dashboard</h2>
+
+    <div class="card p-3 mt-3">
+        <h5>Welcome, Doctor @Context.Session.GetString("UserName")</h5>
+        <p>Here you can manage patients and appointments.</p>
+    </div>
+
+    <div class="mt-4">
+        <a class="btn btn-primary" href="#">View Appointments</a>
+        <a class="btn btn-success" href="#">Patient List</a>
+    </div>
+</div>

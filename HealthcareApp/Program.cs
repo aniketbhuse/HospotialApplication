@@ -1,4 +1,4 @@
-using HealthcareApp.Data;
+﻿using HealthcareApp.Data;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -6,10 +6,21 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddSession();
+// ✅ Configure Session properly
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30); // session timeout
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
 
-builder.Services.AddDbContext<ApplicationDbContext>(option =>
-option.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+// ✅ Add Authentication (important for login systems)
+builder.Services.AddAuthentication();
+
+// ✅ Database connection
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddApplicationInsightsTelemetry();
 
 var app = builder.Build();
 
@@ -17,19 +28,24 @@ var app = builder.Build();
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
 app.UseHttpsRedirection();
+
+// ✅ Serve CSS, JS, images
 app.UseStaticFiles();
 
 app.UseRouting();
 
+// ✅ Enable Session
 app.UseSession();
 
+// ✅ Authentication + Authorization (ORDER MATTERS)
+app.UseAuthentication();
 app.UseAuthorization();
 
+// ✅ Default route
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");

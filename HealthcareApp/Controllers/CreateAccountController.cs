@@ -50,6 +50,8 @@ namespace HealthcareApp.Controllers
             _context.Users.Add(model);
             _context.SaveChanges();
 
+            TempData["SuccessMessage"] = "Account created successfully!";
+
             return RedirectToAction("Login", "Account");
         }
 

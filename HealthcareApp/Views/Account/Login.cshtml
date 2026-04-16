@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Login";
+    Layout = "_Layout";
 }
 
 
@@ -22,6 +23,13 @@
             <h1 class="titleAll" style="font-size: 36px;"></h1>
            
             <p class="signin-label">Sign In</p>
+
+            @if (TempData["SuccessMessage"] != null)
+            {
+                <script>
+                    alert("@TempData["SuccessMessage"]");
+                </script>
+            }
 
             <form method="post">
                 @if (ViewBag.Error != null)
@@ -52,7 +60,7 @@
         </div>
 
     </div>
-   
+    
 
 </body>
 </html>
