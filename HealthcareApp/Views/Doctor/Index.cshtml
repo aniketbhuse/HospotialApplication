@@ -1,17 +1,44 @@
-﻿@{
-    ViewData["Title"] = "Doctor Dashboard";
-}
+﻿
+@model List<DoctorAppointmentVM>
 
-<div class="container mt-4">
-    <h2>Doctor Dashboard</h2>
 
-    <div class="card p-3 mt-3">
-        <h5>Welcome, Doctor @Context.Session.GetString("UserName")</h5>
-        <p>Here you can manage patients and appointments.</p>
-    </div>
 
-    <div class="mt-4">
-        <a class="btn btn-primary" href="#">View Appointments</a>
-        <a class="btn btn-success" href="#">Patient List</a>
-    </div>
+<div class="container">
+    <h2>Doctor Appointments</h2>
+
+    @foreach (var item in Model)
+    {
+        <div class="card">
+            <div class="card-header">
+                <h3>@item.PatientName</h3>
+                <span class="status">Status: @item.Status</span>
+            </div>
+
+            <div class="card-body">
+                <p><b>Age:</b> @item.Age</p>
+                <p><b>Gender:</b> @item.Gender</p>
+                <p><b>Contact:</b> @item.Contact</p>
+                <p><b>Problem:</b> @item.Description</p>
+                <p><b>Date:</b> @item.AppointmentDate.ToShortDateString()</p>
+                <p><b>Time:</b> @item.Time</p>
+            </div>
+
+            <div class="card-footer">
+                <form method="post" action="/Doctor/UpdateStatus">
+                    <input type="hidden" name="id" value="@item.AppointmentId" />
+
+                    <select name="status">
+                        <option value="1">Pending</option>
+                        <option value="2">Approved</option>
+                        <option value="3">Rejected</option>
+                        <option value="4">Completed</option>
+                    </select>
+
+                    <button type="submit">Update</button>
+                </form>
+            </div>
+        </div>
+    }
 </div>
+
+<script src="~/js/site.js"></script>

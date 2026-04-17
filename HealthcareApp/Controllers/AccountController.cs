@@ -32,10 +32,6 @@ namespace HealthcareApp.Controllers
                 return View(model);
             }
 
-            // DEBUG: check what user entered
-            Console.WriteLine("Username: " + model.Username);
-            Console.WriteLine("Password: " + model.Password);
-
             var user = _context.Users.FirstOrDefault(u =>
                 u.Email.Trim().ToLower() == model.Username.Trim().ToLower()
                 && u.Password == model.Password);
