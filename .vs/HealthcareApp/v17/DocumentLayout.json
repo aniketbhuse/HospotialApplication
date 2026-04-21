@@ -3,24 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\Aniket\\source\\repos\\HealthcareApp\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{D43C92C6-9BD8-40D8-A7A5-1AA0C2C4FA3F}|HealthcareApp\\HealthcareApp.csproj|c:\\users\\aniket\\source\\repos\\healthcareapp\\healthcareapp\\service\\adminservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D43C92C6-9BD8-40D8-A7A5-1AA0C2C4FA3F}|HealthcareApp\\HealthcareApp.csproj|solutionrelative:healthcareapp\\service\\adminservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D43C92C6-9BD8-40D8-A7A5-1AA0C2C4FA3F}|HealthcareApp\\HealthcareApp.csproj|c:\\users\\aniket\\source\\repos\\healthcareapp\\healthcareapp\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D43C92C6-9BD8-40D8-A7A5-1AA0C2C4FA3F}|HealthcareApp\\HealthcareApp.csproj|solutionrelative:healthcareapp\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{D43C92C6-9BD8-40D8-A7A5-1AA0C2C4FA3F}|HealthcareApp\\HealthcareApp.csproj|c:\\users\\aniket\\source\\repos\\healthcareapp\\healthcareapp\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D43C92C6-9BD8-40D8-A7A5-1AA0C2C4FA3F}|HealthcareApp\\HealthcareApp.csproj|solutionrelative:healthcareapp\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D43C92C6-9BD8-40D8-A7A5-1AA0C2C4FA3F}|HealthcareApp\\HealthcareApp.csproj|c:\\users\\aniket\\source\\repos\\healthcareapp\\healthcareapp\\controllers\\doctorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D43C92C6-9BD8-40D8-A7A5-1AA0C2C4FA3F}|HealthcareApp\\HealthcareApp.csproj|solutionrelative:healthcareapp\\controllers\\doctorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D43C92C6-9BD8-40D8-A7A5-1AA0C2C4FA3F}|HealthcareApp\\HealthcareApp.csproj|c:\\users\\aniket\\source\\repos\\healthcareapp\\healthcareapp\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D43C92C6-9BD8-40D8-A7A5-1AA0C2C4FA3F}|HealthcareApp\\HealthcareApp.csproj|solutionrelative:healthcareapp\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D43C92C6-9BD8-40D8-A7A5-1AA0C2C4FA3F}|HealthcareApp\\HealthcareApp.csproj|c:\\users\\aniket\\source\\repos\\healthcareapp\\healthcareapp\\controllers\\appointmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D43C92C6-9BD8-40D8-A7A5-1AA0C2C4FA3F}|HealthcareApp\\HealthcareApp.csproj|solutionrelative:healthcareapp\\controllers\\appointmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{D43C92C6-9BD8-40D8-A7A5-1AA0C2C4FA3F}|HealthcareApp\\HealthcareApp.csproj|c:\\users\\aniket\\source\\repos\\healthcareapp\\healthcareapp\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D43C92C6-9BD8-40D8-A7A5-1AA0C2C4FA3F}|HealthcareApp\\HealthcareApp.csproj|solutionrelative:healthcareapp\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D43C92C6-9BD8-40D8-A7A5-1AA0C2C4FA3F}|HealthcareApp\\HealthcareApp.csproj|c:\\users\\aniket\\source\\repos\\healthcareapp\\healthcareapp\\controllers\\doctorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D43C92C6-9BD8-40D8-A7A5-1AA0C2C4FA3F}|HealthcareApp\\HealthcareApp.csproj|solutionrelative:healthcareapp\\controllers\\doctorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,73 +30,73 @@
       "DocumentGroups": [
         {
           "DockedWidth": 227,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 1,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "C:\\Users\\Aniket\\source\\repos\\HealthcareApp\\HealthcareApp\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "HealthcareApp\\Controllers\\HomeController.cs",
-              "ToolTip": "C:\\Users\\Aniket\\source\\repos\\HealthcareApp\\HealthcareApp\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "HealthcareApp\\Controllers\\HomeController.cs",
-              "ViewState": "AgIAAPwLAAAAAAAAAAAkwAwMAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-20T13:58:49.716Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "AppointmentController.cs",
-              "DocumentMoniker": "C:\\Users\\Aniket\\source\\repos\\HealthcareApp\\HealthcareApp\\Controllers\\AppointmentController.cs",
-              "RelativeDocumentMoniker": "HealthcareApp\\Controllers\\AppointmentController.cs",
-              "ToolTip": "C:\\Users\\Aniket\\source\\repos\\HealthcareApp\\HealthcareApp\\Controllers\\AppointmentController.cs",
-              "RelativeToolTip": "HealthcareApp\\Controllers\\AppointmentController.cs",
-              "ViewState": "AgIAABcAAAAAAAAAAAAQwC4AAAArAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "AdminService.cs",
+              "DocumentMoniker": "C:\\Users\\Aniket\\source\\repos\\HealthcareApp\\HealthcareApp\\Service\\AdminService.cs",
+              "RelativeDocumentMoniker": "HealthcareApp\\Service\\AdminService.cs",
+              "ToolTip": "C:\\Users\\Aniket\\source\\repos\\HealthcareApp\\HealthcareApp\\Service\\AdminService.cs",
+              "RelativeToolTip": "HealthcareApp\\Service\\AdminService.cs",
+              "ViewState": "AgIAAL4LAAAAAAAAAAAQwOMLAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-20T13:58:11.975Z",
+              "WhenOpened": "2026-04-21T15:04:33.09Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "C:\\Users\\Aniket\\source\\repos\\HealthcareApp\\HealthcareApp\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "HealthcareApp\\Controllers\\AdminController.cs",
+              "ToolTip": "C:\\Users\\Aniket\\source\\repos\\HealthcareApp\\HealthcareApp\\Controllers\\AdminController.cs",
+              "RelativeToolTip": "HealthcareApp\\Controllers\\AdminController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-21T15:03:10.716Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "AccountController.cs",
               "DocumentMoniker": "C:\\Users\\Aniket\\source\\repos\\HealthcareApp\\HealthcareApp\\Controllers\\AccountController.cs",
               "RelativeDocumentMoniker": "HealthcareApp\\Controllers\\AccountController.cs",
               "ToolTip": "C:\\Users\\Aniket\\source\\repos\\HealthcareApp\\HealthcareApp\\Controllers\\AccountController.cs",
               "RelativeToolTip": "HealthcareApp\\Controllers\\AccountController.cs",
-              "ViewState": "AgIAAC8AAAAAAAAAAAAAAFIAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-17T15:49:21.709Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "DashboardController.cs",
               "DocumentMoniker": "C:\\Users\\Aniket\\source\\repos\\HealthcareApp\\HealthcareApp\\Controllers\\DashboardController.cs",
               "RelativeDocumentMoniker": "HealthcareApp\\Controllers\\DashboardController.cs",
               "ToolTip": "C:\\Users\\Aniket\\source\\repos\\HealthcareApp\\HealthcareApp\\Controllers\\DashboardController.cs",
               "RelativeToolTip": "HealthcareApp\\Controllers\\DashboardController.cs",
-              "ViewState": "AgIAAG4MAAAAAAAAAAAAwJIMAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-16T13:45:01.44Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "DoctorController.cs",
               "DocumentMoniker": "C:\\Users\\Aniket\\source\\repos\\HealthcareApp\\HealthcareApp\\Controllers\\DoctorController.cs",
               "RelativeDocumentMoniker": "HealthcareApp\\Controllers\\DoctorController.cs",
               "ToolTip": "C:\\Users\\Aniket\\source\\repos\\HealthcareApp\\HealthcareApp\\Controllers\\DoctorController.cs",
               "RelativeToolTip": "HealthcareApp\\Controllers\\DoctorController.cs",
-              "ViewState": "AgIAACkMAAAAAAAAAAAqwEsMAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAE4AAAAAAAAAAAAxwGQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-17T15:20:34.291Z",
               "EditorCaption": ""
