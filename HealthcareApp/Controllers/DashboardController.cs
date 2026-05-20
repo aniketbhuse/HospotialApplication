@@ -25,61 +25,60 @@ namespace HealthcareApp.Controllers
                     return RedirectToAction("Login", "Account");
                 }
 
-                var user = _context.Users
-                    .Where(u => u.Email == userEmail)
-                    .Select(u => new PatientProfileViewModel
-                    {
-                        FullName = u.FullName,
-                        Email = u.Email,
-                        Doctors = _context.Doctors.ToList()
-                    })
-                    .FirstOrDefault();
+                var dbUser = _context.Users
+                    .FirstOrDefault(u => u.Email == userEmail);
 
-                if (user == null)
+                if (dbUser == null)
                 {
                     return RedirectToAction("Login", "Account");
                 }
 
-                // ✅ ADD THIS PART (Appointments Fetch Logic)
-                var dbUser = _context.Users.FirstOrDefault(u => u.Email == userEmail);
-
-                if (dbUser != null)
+                var model = new PatientProfileViewModel
                 {
-                    var patient = _context.Patients
-                        .FirstOrDefault(p => p.UserId == dbUser.UserId);
+                    FullName = dbUser.FullName,
+                    Email = dbUser.Email,
+                    Doctors = _context.Doctors.ToList(),
+                    Appointments = new List<AppointmentDetailsViewModel>()
+                };
 
-                    if (patient != null)
-                    {
-                        user.Appointments = _context.Appointments
-                            .Where(a => a.PatientId == patient.PatientId)
-                            .Join(_context.Doctors,
-                                a => a.DoctorId,
-                                d => d.DoctorId,
-                                (a, d) => new AppointmentDetailsViewModel
-                                {
-                                    AppointmentId = a.AppointmentId,
-                                    AppointmentDate = a.AppointmentDate,
-                                    Time = a.Time,
-                                    Status = a.Status,
+                var patient = _context.Patients
+                    .FirstOrDefault(p => p.UserId == dbUser.UserId);
 
-                                    DoctorName = d.FullName,
+                if (patient != null)
+                {
+                    model.Appointments = _context.Appointments
+                        .Where(a => a.PatientId == patient.PatientId)
+                        .Select(a => new AppointmentDetailsViewModel
+                        {
+                            AppointmentId = a.AppointmentId,
+                            AppointmentDate = a.AppointmentDate,
+                            Time = a.Time,
+                            Status = a.Status,
 
-                                    PatientName = dbUser.FullName,
-                                    Age = patient.Age,
-                                    Gender = patient.Gender,
-                                    Contact = patient.Contact,
-                                    Description = patient.Description
-                                }).ToList();
-                    }
+                            DoctorName = _context.Doctors
+                                .Where(d => d.DoctorId == a.DoctorId)
+                                .Select(d => d.FullName)
+                                .FirstOrDefault(),
+
+                            PatientName = dbUser.FullName,
+                            Age = patient.Age,
+                            Gender = patient.Gender,
+                            Contact = patient.Contact,
+                            Description = patient.Description
+                        })
+                        .OrderByDescending(a => a.AppointmentDate)
+                        .Distinct()
+                        .ToList();
                 }
 
-                return View(user);
+                return View(model);
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
 
-                TempData["ErrorMessage"] = "Something went wrong while loading dashboard.";
+                TempData["ErrorMessage"] =
+                    "Something went wrong while loading dashboard.";
 
                 return RedirectToAction("Login", "Account");
             }
@@ -99,31 +98,24 @@ namespace HealthcareApp.Controllers
             {
                 var userEmail = HttpContext.Session.GetString("UserEmail");
 
-                var user = _context.Users.FirstOrDefault(u => u.Email == userEmail);
+                if (string.IsNullOrEmpty(userEmail))
+                {
+                    return RedirectToAction("Login", "Account");
+                }
+
+                var user = _context.Users
+                    .FirstOrDefault(u => u.Email == userEmail);
 
                 if (user == null)
+                {
                     return RedirectToAction("Login", "Account");
+                }
 
-                // ✅ Check if patient exists
-                var existingPatient = _context.Patients
+                // CHECK IF PATIENT EXISTS
+                var patient = _context.Patients
                     .FirstOrDefault(p => p.UserId == user.UserId);
 
-                Patient patient;
-
-                if (existingPatient != null)
-                {
-                    patient = existingPatient;
-
-                    patient.Age = Age;
-                    patient.Gender = Gender;
-                    patient.Contact = Contact;
-                    patient.Description = Description;
-                    patient.UpdatedDate = DateTime.Now;
-
-                    _context.Patients.Update(patient);
-                    _context.SaveChanges();
-                }
-                else
+                if (patient == null)
                 {
                     patient = new Patient
                     {
@@ -139,8 +131,34 @@ namespace HealthcareApp.Controllers
                     _context.Patients.Add(patient);
                     _context.SaveChanges();
                 }
+                else
+                {
+                    patient.Age = Age;
+                    patient.Gender = Gender;
+                    patient.Contact = Contact;
+                    patient.Description = Description;
+                    patient.UpdatedDate = DateTime.Now;
 
-                // ✅ Save Appointment
+                    _context.Patients.Update(patient);
+                    _context.SaveChanges();
+                }
+
+                // PREVENT DUPLICATE APPOINTMENTS
+                var alreadyExists = _context.Appointments.Any(a =>
+                    a.PatientId == patient.PatientId &&
+                    a.DoctorId == DoctorId &&
+                    a.AppointmentDate == AppointmentDate &&
+                    a.Time == Time);
+
+                if (alreadyExists)
+                {
+                    TempData["ErrorMessage"] =
+                        "Appointment already exists.";
+
+                    return RedirectToAction("Index");
+                }
+
+                // SAVE APPOINTMENT
                 var appointment = new Appointments
                 {
                     DoctorId = DoctorId,
@@ -155,17 +173,18 @@ namespace HealthcareApp.Controllers
                 _context.Appointments.Add(appointment);
                 _context.SaveChanges();
 
-                TempData["SuccessMessage"] = "Appointment created successfully!";
+                TempData["SuccessMessage"] =
+                    "Appointment booked successfully!";
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
 
-                TempData["ErrorMessage"] = "Something went wrong while booking appointment.";
+                TempData["ErrorMessage"] =
+                    "Something went wrong while booking appointment.";
             }
 
             return RedirectToAction("Index");
         }
     }
 }
-

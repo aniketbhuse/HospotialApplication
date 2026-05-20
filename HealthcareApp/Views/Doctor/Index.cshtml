@@ -1,44 +1,126 @@
-﻿
-@model List<DoctorAppointmentVM>
-
-
+﻿@model List<DoctorAppointmentVM>
 
 <div class="container">
-    <h2>Doctor Appointments</h2>
 
-    @foreach (var item in Model)
+    <h2 class="page-title">
+        Doctor Appointments
+    </h2>
+
+    @if (TempData["SuccessMessage"] != null)
     {
-        <div class="card">
-            <div class="card-header">
-                <h3>@item.PatientName</h3>
-                <span class="status">Status: @item.Status</span>
+        <script>
+            alert("@TempData["SuccessMessage"]");
+        </script>
+    }
+
+    @if (Model != null && Model.Any())
+    {
+        foreach (var item in Model)
+        {
+            <div class="card">
+
+                <!-- CARD HEADER -->
+                <div class="card-header">
+
+                    <h3>@item.PatientName</h3>
+
+                    <span class="status">
+                        Status:
+                        @item.Status
+                    </span>
+
+                </div>
+
+                <!-- CARD BODY -->
+                <div class="card-body">
+
+                    <p>
+                        <b>Age:</b>
+                        @item.Age
+                    </p>
+
+                    <p>
+                        <b>Gender:</b>
+                        @item.Gender
+                    </p>
+
+                    <p>
+                        <b>Contact:</b>
+                        @item.Contact
+                    </p>
+
+                    <p>
+                        <b>Problem:</b>
+                        @item.Description
+                    </p>
+
+                    <p>
+                        <b>Date:</b>
+                        @item.AppointmentDate
+                        .ToShortDateString()
+                    </p>
+
+                    <p>
+                        <b>Time:</b>
+                        @item.Time
+                    </p>
+
+                </div>
+
+                <!-- CARD FOOTER -->
+                <div class="card-footer">
+
+                    <form method="post"
+                          action="/Doctor/UpdateStatus">
+
+                        <input type="hidden"
+                               name="id"
+                               value="@item.AppointmentId" />
+
+                        <select name="status">
+
+                            <option value="1"
+                                    selected="@(item.Status == 1)">
+                                Pending
+                            </option>
+
+                            <option value="2"
+                                    selected="@(item.Status == 2)">
+                                Approved
+                            </option>
+
+                            <option value="3"
+                                    selected="@(item.Status == 3)">
+                                Rejected
+                            </option>
+
+                            <option value="4"
+                                    selected="@(item.Status == 4)">
+                                Completed
+                            </option>
+
+                        </select>
+
+                        <button type="submit">
+                            Update
+                        </button>
+
+                    </form>
+
+                </div>
+
             </div>
+        }
+    }
+    else
+    {
+        <div class="no-data">
 
-            <div class="card-body">
-                <p><b>Age:</b> @item.Age</p>
-                <p><b>Gender:</b> @item.Gender</p>
-                <p><b>Contact:</b> @item.Contact</p>
-                <p><b>Problem:</b> @item.Description</p>
-                <p><b>Date:</b> @item.AppointmentDate.ToShortDateString()</p>
-                <p><b>Time:</b> @item.Time</p>
-            </div>
+            <h3>No Appointments Found</h3>
 
-            <div class="card-footer">
-                <form method="post" action="/Doctor/UpdateStatus">
-                    <input type="hidden" name="id" value="@item.AppointmentId" />
-
-                    <select name="status">
-                        <option value="1">Pending</option>
-                        <option value="2">Approved</option>
-                        <option value="3">Rejected</option>
-                        <option value="4">Completed</option>
-                    </select>
-
-                    <button type="submit">Update</button>
-                </form>
-            </div>
         </div>
     }
+
 </div>
 
 <script src="~/js/site.js"></script>

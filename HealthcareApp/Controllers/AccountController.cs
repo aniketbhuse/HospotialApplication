@@ -42,6 +42,8 @@ namespace HealthcareApp.Controllers
             }
 
             // Session set
+            HttpContext.Session.SetString("UserId", user.UserId.ToString());
+
             HttpContext.Session.SetString("UserEmail", user.Email);
             HttpContext.Session.SetString("UserName", user.FullName);
             HttpContext.Session.SetString("UserRoleId", user.RoleId.ToString());
