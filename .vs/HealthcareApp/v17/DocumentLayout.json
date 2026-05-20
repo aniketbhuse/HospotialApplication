@@ -7,6 +7,10 @@
       "RelativeMoniker": "D:0:0:{D43C92C6-9BD8-40D8-A7A5-1AA0C2C4FA3F}|HealthcareApp\\HealthcareApp.csproj|solutionrelative:healthcareapp\\controllers\\doctorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{D43C92C6-9BD8-40D8-A7A5-1AA0C2C4FA3F}|HealthcareApp\\HealthcareApp.csproj|c:\\users\\aniket\\source\\repos\\healthcareapp\\healthcareapp\\controllers\\appointmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D43C92C6-9BD8-40D8-A7A5-1AA0C2C4FA3F}|HealthcareApp\\HealthcareApp.csproj|solutionrelative:healthcareapp\\controllers\\appointmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{D43C92C6-9BD8-40D8-A7A5-1AA0C2C4FA3F}|HealthcareApp\\HealthcareApp.csproj|c:\\users\\aniket\\source\\repos\\healthcareapp\\healthcareapp\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D43C92C6-9BD8-40D8-A7A5-1AA0C2C4FA3F}|HealthcareApp\\HealthcareApp.csproj|solutionrelative:healthcareapp\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -30,15 +34,28 @@
       "DocumentGroups": [
         {
           "DockedWidth": 227,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AppointmentController.cs",
+              "DocumentMoniker": "C:\\Users\\Aniket\\source\\repos\\HealthcareApp\\HealthcareApp\\Controllers\\AppointmentController.cs",
+              "RelativeDocumentMoniker": "HealthcareApp\\Controllers\\AppointmentController.cs",
+              "ToolTip": "C:\\Users\\Aniket\\source\\repos\\HealthcareApp\\HealthcareApp\\Controllers\\AppointmentController.cs",
+              "RelativeToolTip": "HealthcareApp\\Controllers\\AppointmentController.cs",
+              "ViewState": "AgIAAPoOAAAAAAAAAAAAwCEPAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-20T15:15:04.808Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\Aniket\\source\\repos\\HealthcareApp\\HealthcareApp\\Views\\Doctor\\Index.cshtml",
               "RelativeDocumentMoniker": "HealthcareApp\\Views\\Doctor\\Index.cshtml",
@@ -46,8 +63,7 @@
               "RelativeToolTip": "HealthcareApp\\Views\\Doctor\\Index.cshtml",
               "ViewState": "AgIAAGYAAAAAAAAAAAAYwHkAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-05-19T15:49:30.141Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-19T15:49:30.141Z"
             },
             {
               "$type": "Document",
@@ -57,14 +73,14 @@
               "RelativeDocumentMoniker": "HealthcareApp\\Controllers\\DoctorController.cs",
               "ToolTip": "C:\\Users\\Aniket\\source\\repos\\HealthcareApp\\HealthcareApp\\Controllers\\DoctorController.cs",
               "RelativeToolTip": "HealthcareApp\\Controllers\\DoctorController.cs",
-              "ViewState": "AgIAAEgAAAAAAAAAAAAuwF4AAAAgAAAAAAAAAA==",
+              "ViewState": "AgIAAEgPAAAAAAAAAAAQwG0PAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-14T08:13:37.073Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "AccountController.cs",
               "DocumentMoniker": "C:\\Users\\Aniket\\source\\repos\\HealthcareApp\\HealthcareApp\\Controllers\\AccountController.cs",
               "RelativeDocumentMoniker": "HealthcareApp\\Controllers\\AccountController.cs",
@@ -72,12 +88,11 @@
               "RelativeToolTip": "HealthcareApp\\Controllers\\AccountController.cs",
               "ViewState": "AgIAACMAAAAAAAAAAAAowD0AAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-14T08:13:37.096Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-14T08:13:37.096Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "DashboardController.cs",
               "DocumentMoniker": "C:\\Users\\Aniket\\source\\repos\\HealthcareApp\\HealthcareApp\\Controllers\\DashboardController.cs",
               "RelativeDocumentMoniker": "HealthcareApp\\Controllers\\DashboardController.cs",
@@ -85,12 +100,11 @@
               "RelativeToolTip": "HealthcareApp\\Controllers\\DashboardController.cs",
               "ViewState": "AgIAAEIAAAAAAAAAAAAYwLIAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-14T07:36:53.486Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-14T07:36:53.486Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\Aniket\\source\\repos\\HealthcareApp\\HealthcareApp\\Views\\Dashboard\\Index.cshtml",
               "RelativeDocumentMoniker": "HealthcareApp\\Views\\Dashboard\\Index.cshtml",
@@ -98,8 +112,7 @@
               "RelativeToolTip": "HealthcareApp\\Views\\Dashboard\\Index.cshtml",
               "ViewState": "AgIAAKwBAAAAAAAAAAAQwM0BAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-05-14T07:35:46.111Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-14T07:35:46.111Z"
             }
           ]
         }
